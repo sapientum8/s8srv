@@ -13,8 +13,8 @@ version = 'dev'
 
 description = """hello"""
 
-sourceCompatibility = 17
-targetCompatibility = 17
+sourceCompatibility = 21
+targetCompatibility = 21
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
@@ -52,6 +52,10 @@ tasks.register('deploy', Exec) {
 
 tasks.register('deploy-hello', Exec) {
     commandLine 'cmd', '/c', 'serverless', 'deploy','function','-f','hello'
+}
+
+tasks.register('invoke-hello', Exec) {
+    commandLine 'cmd', '/c', 'serverless', 'invoke','-f','hello','--log'
 }
 
 shadowJar {
