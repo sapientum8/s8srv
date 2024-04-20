@@ -1,6 +1,7 @@
 *.class
 .gradle
 /build/
+/dist/
 /bin/
 /node_modules/
 /.settings/
