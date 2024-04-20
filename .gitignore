@@ -14,6 +14,9 @@ package-lock.json
 *.war
 *.ear
 
+# IntelliJ files
+.idea/
+
 # Serverless directories
 .serverless
 
