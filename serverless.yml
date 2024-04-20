@@ -59,7 +59,7 @@ package:
 
 functions:
   hello:
-    handler: com.serverless.Handler
+    handler: com.sapientum8.Handler
     events:
       - httpApi:
           path: /hello
