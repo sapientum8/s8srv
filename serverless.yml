@@ -55,7 +55,7 @@ provider:
 
 # you can add packaging information here
 package:
-  artifact: build/libs/hello-dev-all.jar
+  artifact: build/libs/s8srv-dev-all.jar
 
 functions:
   hello:
@@ -66,6 +66,10 @@ functions:
           method: get
     environment:
       variable2: value2
+
+plugins:
+  - serverless-sam
+
     #    The following are a few example events you can configure
     #    NOTE: Please make sure to change your handler code to work with those events
     #    Check the event documentation for details

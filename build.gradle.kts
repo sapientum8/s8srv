@@ -1,5 +1,9 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
+description = """s8srv project"""
+group = "com.sapientum8"
+version = "dev"
+
 plugins {
     java
     `maven-publish`
@@ -8,24 +12,14 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
 }
 
-description = """s8srv project"""
-group = "com.sapientum8"
-version = "0.1"
-
-tasks {
-    javadoc {
-        options.encoding = "UTF-8"
-    }
-    compileJava {
-        options.encoding = "UTF-8"
-    }
-    compileTestJava {
-        options.encoding = "UTF-8"
-    }
-}
-
 repositories {
     mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 // If requiring AWS JDK, uncomment the dependencyManagement to use the bill of materials
@@ -51,6 +45,15 @@ dependencies {
 }
 
 tasks {
+    javadoc {
+        options.encoding = "UTF-8"
+    }
+    compileJava {
+        options.encoding = "UTF-8"
+    }
+    compileTestJava {
+        options.encoding = "UTF-8"
+    }
     register<Exec>("deploy") {
         group = "serverless"
         description = "Deploy the serverless application"
@@ -66,7 +69,6 @@ tasks {
     register<Exec>("invoke-hello") {
         group = "serverless"
         description = "Invoke the serverless function hello"
-        dependsOn("shadowJar")
         commandLine("cmd", "/c", "serverless", "invoke", "-f", "hello", "--log")
     }
     named<ShadowJar>("shadowJar") {

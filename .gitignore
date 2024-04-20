@@ -6,6 +6,8 @@
 .project
 .classpath
 
+package-lock.json
+
 # Package Files
 *.jar
 *.war
