@@ -36,7 +36,7 @@ dependencies {
     api("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.0-Beta5")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.3")
     implementation("com.amazonaws:aws-lambda-java-log4j2:1.6.0")
-    implementation("software.amazon.awssdk:dynamodb:2.25.31")
+    implementation("software.amazon.awssdk:dynamodb:2.25.35")
     implementation("org.apache.logging.log4j:log4j-api:3.0.0-beta1")
     implementation("org.apache.logging.log4j:log4j-core:3.0.0-beta1")
     implementation("com.fasterxml.jackson.core:jackson-core:2.17.0")
