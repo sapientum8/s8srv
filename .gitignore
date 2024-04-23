@@ -17,6 +17,7 @@ package-lock.json
 
 # IntelliJ files
 .idea/
+*.iml
 
 # Serverless directories
 .serverless

@@ -578,9 +578,9 @@ video {
   overflow: hidden;
 }
 
-.bg-red-700 {
+.bg-red-800 {
   --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+  background-color: rgb(153 27 27 / var(--tw-bg-opacity));
 }
 
 .p-8 {
