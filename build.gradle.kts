@@ -9,12 +9,11 @@ plugins {
     jacoco
     `maven-publish`
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.spring.dependency.management)
     alias(libs.plugins.shadow.plugin)
+    alias(libs.plugins.spring.dependency.management)
     //id("org.jetbrains.kotlin.jvm") version "1.9.23"
-    // id("org.springframework.boot") version "3.2.5"
-    //id("io.spring.dependency-management") version "1.1.4"
-    // id("com.github.johnrengelman.shadow") version "8.1.1"
+    //id("org.springframework.boot") version "3.2.5"
+    //id("com.github.johnrengelman.shadow") version "8.1.1"
     id("org.barfuin.gradle.taskinfo") version "2.2.0"
 }
 
