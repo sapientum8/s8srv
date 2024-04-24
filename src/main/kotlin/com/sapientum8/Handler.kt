@@ -24,7 +24,7 @@ class Handler : RequestHandler<Map<String, Any>, ApiGatewayResponse> {
 
         return ApiGatewayResponse.build {
             statusCode = 200
-            objectBody = HelloResponse("Go Serverless v2.3! Your Kotlin function executed successfully!", input)
+            objectBody = HelloResponse("Go Serverless v2.3! Your Kotlin function executed successfully!!", input)
             headers = mapOf("X-Powered-By" to "AWS Lambda & serverless")
         }
     }

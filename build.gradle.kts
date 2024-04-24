@@ -4,15 +4,18 @@ description = """s8srv project"""
 group = "com.sapientum8"
 version = "dev"
 
-val jacksonVersion: String by project
-
 plugins {
     java
+    jacoco
     `maven-publish`
-    id("org.jetbrains.kotlin.jvm") version "1.9.23"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
-    id("io.spring.dependency-management") version "1.1.4"
-    // id("org.jetbrains.intellij") version "1.0"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.spring.dependency.management)
+    alias(libs.plugins.shadow.plugin)
+    //id("org.jetbrains.kotlin.jvm") version "1.9.23"
+    // id("org.springframework.boot") version "3.2.5"
+    //id("io.spring.dependency-management") version "1.1.4"
+    // id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("org.barfuin.gradle.taskinfo") version "2.2.0"
 }
 
 repositories {
@@ -42,9 +45,10 @@ dependencies {
     implementation("software.amazon.awssdk:dynamodb:2.25.35")
     implementation("org.apache.logging.log4j:log4j-api:3.0.0-beta1")
     implementation("org.apache.logging.log4j:log4j-core:3.0.0-beta1")
-    implementation("com.fasterxml.jackson.core:jackson-core:$jacksonVersion")
-    implementation("com.fasterxml.jackson.core:jackson-databind:$jacksonVersion")
-    implementation("com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion")
+    implementation(libs.jackson.core)
+    implementation(libs.jackson.databind)
+    implementation(libs.jackson.annotations)
+    testImplementation(kotlin("test"))
 }
 
 tasks {
@@ -77,7 +81,13 @@ tasks {
     named<ShadowJar>("shadowJar") {
         transform(com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformer::class.java)
     }
+    named<JacocoReport>("jacocoTestReport") {
+        dependsOn(test)
+    }
     build {
         finalizedBy("shadowJar")
+    }
+    test {
+        useJUnitPlatform()
     }
 }
